@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if key2 %}
+    <form action="{% url 'Updatedata' pk=key2.id%}" method="post">
+        {% csrf_token %}
+    <center>
+
+        <input type="text" value="{{key2.name}}"  name="fname">
+        <br><br>
+        <select name="country" id="">
+            <option value="">{{ key2.country }}</option>
+            {% for country in countries %}
+            <option value="{{ country.country_name }}">{{ country.country_name }}</option>
+            {% endfor %}
+        </select>
+        <br> <br>
+        <select name="state" id="">
+            <option value="">{{ key2.state }}</option>
+            {% for state in states %}
+            <option value="{{ state.state_name }}">{{ state.state_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="city" id="">
+            <option value="">{{ key2.city }}</option>
+            {% for city in citys %}
+            <option value="{{ city.city_name }}">{{ city.city_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+<input type="submit" value="Update">
+</form>
+{% endif %}
+</center>
+</body>
+</html>
